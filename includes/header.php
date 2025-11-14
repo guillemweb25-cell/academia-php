@@ -16,4 +16,5 @@ if (!isset($pageTitle)) {
         <a href="index.php">Inicio</a>
         <a href="acerca.php">Acerca de</a>
         <a href="cursos.php">Cursos</a>
+        <a href="galleria.php">Galeria</a>
     </nav>
