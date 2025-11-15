@@ -31,24 +31,91 @@ body {
 .site-header {
     background: #111;
     color: #fff;
-    padding: 1.6rem 0;
 }
 
+/* MOBILE FIRST – TODO EN COLUMNA */
+.header-inner {
+    display: flex;
+    flex-direction: column;   /* 🔥 clave */
+    align-items: flex-start;  /* alinear a la izquierda */
+    gap: 1rem;                /* un poco de separación */
+    padding: 1.2rem 0;
+}
+
+
+/* Logo del sitio */
 .logo {
-    margin: 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Botón hamburguesa, solo para móvil */
+.nav-toggle {
+    background: none;
+    border: 0;
+    color: #fff;
     font-size: 2.4rem;
+    cursor: pointer;
+}
+
+
+/* Menú: por defecto oculto en móvil */
+.main-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    width: 100%;
 }
 
 .main-nav a {
     color: #fff;
-    margin-right: 1.6rem;
     text-decoration: none;
     font-size: 1.6rem;
+    text-align: center;
+    padding: 0.8rem 0;
 }
 
 .main-nav a:hover {
     text-decoration: underline;
 }
+
+.site-header.open .main-nav {
+    display: flex;
+}
+
+/* A partir de 768px cambiamos a versión escritorio */
+@media (min-width: 768px) {
+
+    /* Ocultamos el botón hamburguesa */
+    .nav-toggle {
+        display: none;
+    }
+
+    .header-inner {
+        display: flex;
+        flex-direction: row;         /* horizontal */
+        justify-content: space-between;  /* LOGO izquierda – MENÚ derecha */
+        align-items: center;
+    }
+
+    /* Mostramos el menú en línea */
+    .main-nav {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 0;
+        width: auto;
+        padding-right: 1rem;
+    }
+     .main-nav a {
+        padding: 0;                  /* más elegante en escritorio */
+        text-align: left;            /* no centrado */
+    }
+}
+
 
 .site-content {
     padding: 2.4rem 0;
