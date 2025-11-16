@@ -40,61 +40,8 @@ $files = scandir($dir);
     <button class="lb-btn lb-next">&#10095;</button>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const lightbox    = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const btnPrev     = document.querySelector(".lb-prev");
-    const btnNext     = document.querySelector(".lb-next");
-    const images      = Array.from(document.querySelectorAll(".galeria img.thumb"));
+<script src="js/lightbox.js"></script>
 
-    let currentIndex = 0;
-
-    function showImage(index) {
-        if (images.length === 0) return;
-        if (index < 0) index = images.length - 1;        // torna a la darrera
-        if (index >= images.length) index = 0;           // torna a la primera
-
-        currentIndex = index;
-        const img = images[currentIndex];
-        const fullSrc = img.dataset.full || img.src;
-        lightboxImg.src = fullSrc;
-        lightbox.classList.add("active");
-    }
-
-    images.forEach((img, index) => {
-        img.addEventListener("click", () => {
-            showImage(index);
-        });
-    });
-
-    btnPrev.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showImage(currentIndex - 1);
-    });
-
-    btnNext.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showImage(currentIndex + 1);
-    });
-
-    // tancar fent clic al fons negre
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove("active");
-            lightboxImg.src = "";
-        }
-    });
-
-    // opcional: tancar amb ESC
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            lightbox.classList.remove("active");
-            lightboxImg.src = "";
-        }
-    });
-});
-</script>
 
 <?php
 require __DIR__ . "/includes/footer.php";
