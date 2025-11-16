@@ -38,6 +38,7 @@ $files = scandir($dir);
     <button class="lb-btn lb-prev">&#10094;</button>
     <img id="lightbox-img" src="" alt="">
     <button class="lb-btn lb-next">&#10095;</button>
+    <button class="lb-close">&times;</button>
 </div>
 
 <script src="js/lightbox.js"></script>

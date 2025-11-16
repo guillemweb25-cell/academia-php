@@ -4,6 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnPrev     = document.querySelector(".lb-prev");
     const btnNext     = document.querySelector(".lb-next");
     const images      = Array.from(document.querySelectorAll(".galeria img.thumb"));
+    const btnClose    = document.querySelector(".lb-close");
+
+    btnClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        lightbox.classList.remove("active");
+        lightboxImg.src = "";
+    });
+
+
 
     let currentIndex = 0;
 

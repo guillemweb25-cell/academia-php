@@ -185,6 +185,40 @@ body {
     right: 2rem;
 }
 
+/* Animación de aparición */
+#lightbox.active {
+    display: flex;
+    animation: lb-fade 0.25s ease-out;
+}
+
+#lightbox-img {
+    animation: lb-zoom 0.25s ease-out;
+}
+
+@keyframes lb-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes lb-zoom {
+    from { transform: scale(0.95); }
+    to   { transform: scale(1); }
+}
+
+/* Botón de cerrar (X) */
+.lb-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+
 
 
 .site-content {
