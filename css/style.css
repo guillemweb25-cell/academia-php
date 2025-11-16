@@ -114,7 +114,7 @@ body {
     }
 }
 
-/* ===== Galería de imágenes ===== */
+/* ===== Galeria ===== */
 
 .galeria {
     display: grid;
@@ -123,20 +123,68 @@ body {
     padding: 2rem 0;
 }
 
-.galeria img {
+.galeria img.thumb {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 6px;
     object-fit: cover;
+    cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    aspect-ratio: 1/1
+    aspect-ratio: 1/1;
 }
 
-.galeria img:hover {
+.galeria img.thumb:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
+
+/* ===== Lightbox ===== */
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* Botons prev/next */
+
+.lb-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 3.2rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.lb-prev {
+    left: 2rem;
+}
+
+.lb-next {
+    right: 2rem;
+}
+
 
 
 .site-content {
