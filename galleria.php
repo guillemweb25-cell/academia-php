@@ -21,8 +21,8 @@ $files = scandir($dir);
         continue;
     }
 
-    $thumb = "uploads/$file";
     $full  = "uploads/" . str_replace('.thumb', '', $file);
+    $thumb = "uploads/$file";
     ?>
 
     <img src="<?= $thumb ?>" 
